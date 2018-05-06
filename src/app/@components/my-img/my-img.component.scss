@@ -1,0 +1,73 @@
+.main-loading{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: #002440;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+path {
+  fill: none;
+  stroke: #000000;
+}
+
+
+
+
+.text{
+  height:25px;
+  width: 100%;
+  font-size: 26px;
+  color: black;
+  text-indent: 1px;
+  position: absolute;
+  bottom: 20%;
+  //right: -6%;
+  span{
+    display: inline-block;
+    position: relative;
+    will-change: transform;
+    animation: diffuseShadow 2s infinite ease-in;
+
+  }
+}
+.text span:nth-child(1){ animation-delay: .0s;}
+.text span:nth-child(2){ animation-delay: .200s;}
+.text span:nth-child(3){ animation-delay: .400s;}
+.text span:nth-child(4){ animation-delay: .600s;}
+.text span:nth-child(5){ animation-delay: .800s;}
+.text span:nth-child(6){ animation-delay: .1000s;}
+.text span:nth-child(7){ animation-delay: .1200s;}
+.text span:nth-child(8){ animation-delay: .1400s;}
+
+@keyframes diffuseShadow{
+  0%,10%{
+    text-shadow: 0 0 0 rgba(0,0,0,0);
+    transform: translate3d(50px,0,0);
+  }
+  50%{
+    text-shadow: 0 20px 30px rgba(0,0,0,.1);
+  }
+  70%,100%{
+    text-shadow: 0 0 0 rgba(0,0,0,.1);
+    transform: translate3d(0,0,0);
+  }
+}
+
+.img-container{
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  top: 40%;
+  left: 40%;
+}

@@ -7,8 +7,97 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Latest compiled and minified CSS -->
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.0/anime.min.js"></script>-->
+
+  <noscript>
+    <h3 style="color: #673ab7; font-family: Helvetica; margin: 2rem;">
+      Sorry, but app is not available without javascript
+    </h3>
+  </noscript>
+
 </head>
 <body>
-  <app-root></app-root>
+
+  <app-root>
+
+
+  </app-root>
+
+  <script>
+
+  function myImg() {
+    function clearDash(el) {
+      var pathLength = el.getTotalLength() || el.node().getTotalLength();
+
+      el.setAttribute('stroke-dasharray', pathLength);
+      el.setAttribute('stroke-dashoffset', pathLength);
+    }
+
+    let  paths = document.querySelectorAll('path');
+    paths.forEach(function(path) {
+      clearDash(path);
+    });
+
+
+    var timeline = anime.timeline({ autoplay: true, direction: 'normal', loop: true });
+
+    timeline
+      .add({
+        targets: 'svg',
+        opacity: {
+          value: 1,
+          duration: 1000,
+          easing: 'easeInOutQuad'
+        },
+        offset: 1000
+      })
+      .add({
+        targets: '.thick',
+        strokeDashoffset: {
+          value: [anime.setDashoffset, 0],
+          duration: 500,
+          easing: 'easeInOutQuad'
+        },
+        delay: function(el, index) {
+          return index * 80;
+        },
+        offset: 1000
+      })
+      .add({
+        targets: 'path:not(.thick)',
+        strokeDashoffset: {
+          value: [anime.setDashoffset, 0],
+          duration: 100,
+          easing: 'easeInOutQuad'
+        },
+        delay: function(el, index) {
+          return (index % 50) * 15;
+        },
+        offset: 2000
+      })
+      .add({
+        targets: 'path:first-child',
+        opacity: {
+          value: 1,
+          duration: 3000,
+          easing: 'easeInOutQuad'
+        },
+        offset: 3000
+      })
+      .add({
+        targets: 'svg',
+        opacity: {
+          value: [1, 0],
+          duration: 1000,
+          easing: 'easeInOutQuad'
+        },
+        offset: 6000
+      });
+  }
+
+  </script>
 </body>
 </html>

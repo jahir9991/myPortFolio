@@ -1,0 +1,70 @@
+
+<div class="button_container" (mouseup)="showNav=!showNav" [ngClass]="{'active':showNav}">
+  <div class="name_container">
+    <span id="menu_name">ME<br>NU</span>
+    <span id="open_name">OP<br>EN</span>
+  </div>
+
+  <span class="ja-menu-close">X</span>
+</div>
+
+
+
+<div class="menu" [ngClass]="{'open':showNav}">
+
+<div class="row margin-0">
+  <div class="col-md-6" style=" height: 100vh; background: #002440;">
+    <div class="row">
+
+      <div class="col-md-6">
+        <div >
+
+
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="pull-right padding-10 margin-10">
+
+          <nav >
+            <a  href="javascript:void(0)" (click)="showNav=false" (mouseleave)="trailer.show=false" (mouseenter)="changeRouter('/home','Home',true)" >Home</a>
+            <a  href="javascript:void(0)" (click)="showNav=false" (mouseleave)="trailer.show=false" (mouseenter)="changeRouter('/about', 'About',true)" >About</a>
+            <a  href="javascript:void(0)" (click)="showNav=false" (mouseleave)="trailer.show=false" (mouseenter)="changeRouter('/works' , 'Works' ,true)" >Works</a>
+            <a  href="javascript:void(0)" (click)="showNav=false" (mouseleave)="trailer.show=false" (mouseenter)="changeRouter('/playGround','PlayGround',true)">playGround</a>
+            <a  href="javascript:void(0)" (click)="showNav=false" (mouseleave)="trailer.show=false" (mouseenter)="changeRouter('/findMe','findMe',true )">Find me</a>
+          </nav>
+          <span class="division_line"></span>
+          <div class="icon_container">
+            <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-behance fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-codepen fa-2x" aria-hidden="true"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-6" style="padding: 0;" >
+  <div  *ngIf="trailer.show"
+       style="margin: 0;height: 100vh;
+       background-image: url(https://c-m-d.info/media/themes/cmd_theme/resources/public/Images/phil-adrian.jpg);opacity: 1; transform: translate3d(0px, 0px, 0px);">
+
+    <div class="c_imagetext cJS_scrollHeader">
+      <div class="c_imagetext__text-container">
+                        <span class="c_imagetext__text cJS_imagetext__text--animated" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                            {{trailer.title}}
+                        </span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+
+
+</div>
+
+

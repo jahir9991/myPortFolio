@@ -1,0 +1,59 @@
+
+// fun to customize, guaranteed. act now.
+$size: 500px;         // project size
+$max-w: 10em;         // biggest wave
+$min-w: .25em;        // smallest wave
+$r: $max-w - $min-w;  // width range
+$speed: 1500ms;       // wave speed
+$f: 20;               // number of waves
+$s-w: 0.1em;          // wave width
+$c: #1abc9c;          // wave color
+
+
+.loader-body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #2c3e50;
+  .loader-inner {
+    background: #2c3e50;
+    position: relative;
+    width: 10em;
+    height: 5em;
+    font-size: 50px;
+    overflow: hidden;
+    top: 40%;
+    left: 36%;
+
+    .wave {
+      border-width: $s-w;
+      border-style: solid;
+      position: absolute;
+      animation: wave $speed infinite alternate;
+      transform: rotate(-44.5deg);
+      $a: 1; // alpha
+      @for $i from 1 through $f {
+        &:nth-child(#{$i}) {
+          $w: $max-w - (($r/$f) * $i);
+          @if $i > 1 {
+            $a: 1 - ((1 / ($f+1)) * $i);
+          }
+          width: $w;
+          height: $w;
+          bottom: $w/-2;
+          left: ($max-w - $w ) / 2;
+          animation-delay: $i * ($speed / $f);
+          border-color: transparent transparent rgba($c, $a) rgba($c, $a);
+          border-radius: $w;
+        }
+      }
+    }
+
+    @keyframes wave {
+      to {
+        transform: rotate(135deg);
+      }
+    }
+
+  }
+}
