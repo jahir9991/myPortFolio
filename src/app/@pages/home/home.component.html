@@ -1,0 +1,26 @@
+
+
+<div id="home-slider">
+  <div class="swiper-container" [swiper]="config" [(index)]="index">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide ">
+        <app-loader></app-loader>
+
+      </div>
+      <div class="swiper-slide ">
+        <app-about></app-about>
+
+      </div>
+      <div class="swiper-slide ">
+        <div class="container">
+          <div id="domNode" style="height: 100%;background: #000;width: 50px;">
+            <div class="large square el"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+</div>
